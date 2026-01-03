@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "AI点餐助手",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
+  }
+}

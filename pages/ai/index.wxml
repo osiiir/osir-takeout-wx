@@ -1,0 +1,30 @@
+<view class="chat-container">
+  <uni-nav-bar 
+    title="AI点餐助手" 
+    left-icon="back" 
+    statusBar="true" 
+    fixed="false"
+    backgroundColor="#ffffff"
+    color="#000000"
+    bind:clickLeft="goBack">
+  </uni-nav-bar>
+
+  <scroll-view scroll-y class="chat-list" scroll-top="{{scrollTop}}">
+    <block wx:for="{{messages}}" wx:key="index">
+      <view class="message-item {{item.type === 'user' ? 'user-message' : 'ai-message'}}">
+        <view class="avatar">
+          <image src="{{item.type === 'user' ? '/static/user.png' : '/static/robot.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="content">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <view class="input-area">
+    <input class="input-box" value="{{inputValue}}" bindinput="handleInput" placeholder="请输入您想吃的..." confirm-type="send" bindconfirm="sendMessage"/>
+    <button class="send-btn" bindtap="sendMessage" disabled="{{loading}}">发送</button>
+  </view>
+</view>
+
